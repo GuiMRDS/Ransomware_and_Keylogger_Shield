@@ -13,19 +13,6 @@ Os scripts devem ser executados **apenas em ambientes de laboratório ou máquin
 
 ---
 
-# 📚 Sobre o Desafio
-
-Este repositório foi desenvolvido como parte de um **desafio prático de cibersegurança com Python**, com o objetivo de implementar e documentar o comportamento de malwares simulados.
-
-A proposta do desafio foi:
-
-- Implementar um **Ransomware Simulado**
-- Criar um **Keylogger Simulado**
-- Documentar o funcionamento dessas ameaças
-- Refletir sobre **estratégias de defesa e mitigação**
-
----
-
 # 🎯 Objetivos de Aprendizagem
 
 Durante o desenvolvimento deste projeto foi possível:
