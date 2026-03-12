@@ -1,44 +1,39 @@
-# 🛡️ Ransomware and Keylogger Shield (Educational Project)
+# 🛡️ Ransomware and Keylogger Shield
 
-Projeto educacional desenvolvido em **Python** para demonstrar, em um **ambiente totalmente controlado**, o funcionamento de dois tipos comuns de malware:
+Projeto educacional desenvolvido em **Python** para simular o funcionamento de dois tipos comuns de malware em um **ambiente controlado**:
 
-- **Ransomware**
-- **Keylogger**
+- 🔐 Ransomware (criptografia de arquivos)
+- ⌨️ Keylogger (captura de teclas)
 
-O objetivo deste repositório é **entender como essas ameaças funcionam na prática** e, principalmente, **aprender estratégias de defesa e prevenção** contra esse tipo de ataque.
+O objetivo deste projeto é **entender como essas ameaças funcionam na prática** e principalmente aprender **como detectá-las e se proteger delas**.
 
-⚠️ **Aviso Importante:**  
-Este projeto foi desenvolvido **exclusivamente para fins educacionais e de estudo em cibersegurança**.  
-Todos os testes devem ser realizados **apenas em ambiente controlado**, como máquinas virtuais ou laboratórios isolados.
+⚠️ **Aviso:**  
+Este projeto foi criado **exclusivamente para fins educacionais e de estudo em cibersegurança**.  
+Os scripts devem ser executados **apenas em ambientes de laboratório ou máquinas virtuais**.
 
 ---
 
 # 📚 Sobre o Desafio
 
-Este projeto foi desenvolvido como parte de um desafio prático de **cibersegurança utilizando Python**.
+Este repositório foi desenvolvido como parte de um **desafio prático de cibersegurança com Python**, com o objetivo de implementar e documentar o comportamento de malwares simulados.
 
-A proposta é **implementar e documentar exemplos simulados de malware**, permitindo compreender:
+A proposta do desafio foi:
 
-- Como malwares operam
-- Como dados podem ser capturados ou sequestrados
-- Como detectar e prevenir esses ataques
-
-O projeto inclui:
-
-✔ Simulação de **Ransomware**  
-✔ Simulação de **Keylogger**  
-✔ Documentação de **estratégias de defesa**
+- Implementar um **Ransomware Simulado**
+- Criar um **Keylogger Simulado**
+- Documentar o funcionamento dessas ameaças
+- Refletir sobre **estratégias de defesa e mitigação**
 
 ---
 
 # 🎯 Objetivos de Aprendizagem
 
-Ao desenvolver este projeto foi possível:
+Durante o desenvolvimento deste projeto foi possível:
 
 - Compreender o funcionamento básico de **Ransomware**
 - Entender como funciona a captura de dados de um **Keylogger**
-- Implementar scripts em **Python** simulando ataques em ambiente controlado
-- Estudar **formas de prevenção e mitigação**
+- Praticar programação em **Python aplicada à segurança**
+- Estudar **técnicas de defesa contra malware**
 - Utilizar **GitHub como portfólio técnico**
 
 ---
@@ -48,16 +43,10 @@ Ao desenvolver este projeto foi possível:
 ```
 Ransomware_and_Keylogger_Shield
 │
-├── ransomware/
-│   ├── encrypt.py
-│   ├── decrypt.py
-│
-├── keylogger/
-│   ├── keylogger.py
-│
-├── images/
-│   ├── screenshots do projeto
-│
+├── ransomware.py
+├── decrypt.py
+├── keylogger.py
+├── log.txt
 └── README.md
 ```
 
@@ -65,94 +54,77 @@ Ransomware_and_Keylogger_Shield
 
 # 🔐 Ransomware Simulado
 
-O ransomware criado neste projeto simula o comportamento básico de um malware de sequestro de arquivos.
+O script de ransomware desenvolvido neste projeto simula o comportamento de um malware que **criptografa arquivos e exige resgate para recuperação**.
 
 ## Funcionamento
 
-1. Cria ou seleciona arquivos de teste  
-2. Utiliza criptografia para **criptografar os arquivos**  
-3. Exibe uma mensagem simulando um **pedido de resgate**  
+1. Seleciona arquivos de teste
+2. Utiliza criptografia para **criptografar os arquivos**
+3. Simula uma mensagem de resgate
 4. Possui um script separado para **descriptografar os arquivos**
 
 ## Biblioteca utilizada
 
-- **Cryptography (Fernet)**
+- `cryptography`
+- `Fernet`
 
-A biblioteca Fernet foi utilizada para realizar a **criptografia simétrica dos arquivos**.
+Essas bibliotecas permitem realizar **criptografia simétrica**, técnica utilizada por diversos ransomwares reais.
 
 ---
 
 # ⌨️ Keylogger Simulado
 
-O Keylogger desenvolvido neste projeto captura **teclas digitadas no teclado** e registra em um arquivo `.txt`.
+O keylogger criado neste projeto registra **teclas pressionadas no teclado** e salva as informações em um arquivo `.txt`.
 
 ## Funcionamento
 
-- Captura teclas pressionadas
-- Registra em um arquivo `log.txt`
-- Ignora algumas teclas especiais
-- Trata teclas como:
+O script:
 
-- espaço  
-- enter  
-- tab  
-- backspace  
+- Monitora o teclado
+- Registra teclas digitadas
+- Salva os dados em `log.txt`
+- Trata teclas especiais como:
+  - espaço
+  - enter
+  - tab
+  - backspace
 
 ## Biblioteca utilizada
 
-- **pynput**
+- `pynput`
 
-Essa biblioteca permite monitorar eventos de **teclado e mouse no sistema operacional**.
-
----
-
-# 📧 Possível Extensão do Projeto
-
-O projeto também pode ser expandido com:
-
-- envio automático dos logs por e-mail usando:
-
-- **smtplib**
-
-Isso permite simular como alguns malwares **exfiltram dados capturados**.
+Essa biblioteca permite monitorar **eventos de teclado e mouse no sistema operacional**.
 
 ---
 
 # 🛡️ Estratégias de Defesa Contra Malware
 
-Durante o estudo do projeto foram analisadas algumas medidas de proteção importantes:
+Durante o estudo deste projeto foram analisadas algumas medidas importantes de proteção:
 
-## 🔹 Uso de Antivírus
+### 🔹 Antivírus e EDR
+Ferramentas de segurança podem detectar **comportamentos suspeitos** como captura de teclado ou criptografia em massa de arquivos.
 
-Ferramentas de segurança podem detectar comportamento suspeito e bloquear execução de scripts maliciosos.
+### 🔹 Firewall
+Bloqueia comunicações suspeitas entre malwares e servidores externos.
 
-## 🔹 Firewall
+### 🔹 Sandbox / Máquina Virtual
+Executar arquivos desconhecidos em ambientes isolados evita comprometer o sistema principal.
 
-Ajuda a bloquear comunicações suspeitas entre o malware e servidores externos.
-
-## 🔹 Sandboxing
-
-Executar arquivos desconhecidos em **ambientes isolados**, como:
-
-- máquinas virtuais
-- ambientes de teste
-
-## 🔹 Conscientização do Usuário
-
-Grande parte dos ataques ocorre devido a:
+### 🔹 Conscientização do Usuário
+Muitos ataques acontecem por:
 
 - downloads maliciosos
 - anexos de e-mail
 - engenharia social
 
-Educação do usuário é uma das **defesas mais importantes**.
+Treinamento de usuários é uma das **melhores defesas contra ataques**.
 
 ---
 
 # 💻 Tecnologias Utilizadas
 
 - Python
-- Cryptography
+- cryptography
 - pynput
 
 ---
@@ -183,31 +155,21 @@ python keylogger.py
 ou
 
 ```bash
-python encrypt.py
+python ransomware.py
 ```
 
 ⚠️ Execute apenas em **ambiente de testes**.
 
 ---
 
-# 📷 Demonstrações
-
-Capturas de tela do funcionamento podem ser encontradas na pasta:
-
-```
-/images
-```
-
----
-
 # 📖 Aprendizados
 
-Este projeto permitiu entender na prática:
+Este projeto permitiu compreender na prática:
 
-- Como malwares podem capturar dados
-- Como funciona criptografia usada por ransomwares
-- Como pequenas falhas de segurança podem ser exploradas
-- A importância de práticas de **cibersegurança defensiva**
+- Como ransomwares utilizam **criptografia para sequestrar dados**
+- Como keyloggers capturam **informações digitadas**
+- Como esses comportamentos podem ser **detectados por ferramentas de segurança**
+- A importância de boas práticas de **cibersegurança defensiva**
 
 ---
 
@@ -224,11 +186,8 @@ O autor **não se responsabiliza por qualquer uso malicioso deste código**.
 
 **Guilherme Marinho**
 
-Estudante de **Análise e Desenvolvimento de Sistemas** com interesse em:
-
-- Cibersegurança
-- Inteligência Artificial
-- Desenvolvimento de Software
+🎓 Estudante de Análise e Desenvolvimento de Sistemas  
+🔐 Interesse em Cibersegurança, Inteligência Artificial e Desenvolvimento de Software
 
 GitHub:  
 https://github.com/GuiMRDS
