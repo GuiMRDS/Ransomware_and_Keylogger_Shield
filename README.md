@@ -1,180 +1,149 @@
-# 🛡️ Ransomware and Keylogger Shield
+# 🛡️ Ransomware & Keylogger Shield
 
-Projeto educacional desenvolvido em **Python** para simular o funcionamento de dois tipos comuns de malware em um **ambiente controlado**:
+> ⚠️ **Aviso Legal:** Este projeto foi desenvolvido **exclusivamente para fins educacionais**, em ambiente controlado e isolado. Nenhum código aqui deve ser utilizado para atividades ilegais ou maliciosas. O objetivo é compreender como ataques funcionam para **melhorar a segurança de sistemas**.
 
-- 🔐 Ransomware (criptografia de arquivos)
-- ⌨️ Keylogger (captura de teclas)
-
-O objetivo deste projeto é **entender como essas ameaças funcionam na prática** e principalmente aprender **como detectá-las e se proteger delas**.
-
-⚠️ **Aviso:**  
-Este projeto foi criado **exclusivamente para fins educacionais e de estudo em cibersegurança**.  
-Os scripts devem ser executados **apenas em ambientes de laboratório ou máquinas virtuais**.
+Projeto de **Cibersegurança** que combina simulação ofensiva e defesa ativa contra dois dos ataques mais comuns no mundo digital: **Ransomware** e **Keylogger**. Desenvolvido como parte do **Bootcamp Riachuelo – Cibersegurança** da Digital Innovation One (DIO), com 40 horas de formação.
 
 ---
 
-# 🎯 Objetivos de Aprendizagem
+## 🎯 Objetivo
 
-Durante o desenvolvimento deste projeto foi possível:
-
-- Compreender o funcionamento básico de **Ransomware**
-- Entender como funciona a captura de dados de um **Keylogger**
-- Praticar programação em **Python aplicada à segurança**
-- Estudar **técnicas de defesa contra malware**
-- Utilizar **GitHub como portfólio técnico**
+Entender na prática como ransomwares e keyloggers operam — desde a execução do ataque até a detecção e resposta — desenvolvendo uma visão completa do ciclo de ataque e defesa em segurança da informação.
 
 ---
 
-# 🧪 Estrutura do Projeto
+## 🗂️ Estrutura do Projeto
 
 ```
-Ransomware_and_Keylogger_Shield
-│
-├── ransomware.py
-├── decrypt.py
-├── keylogger.py
-├── log.txt
+Ransomware_and_Keylogger_Shield/
+├── ransomware/
+│   ├── encryptor.py          # Simula a criptografia de arquivos (ataque)
+│   └── decryptor.py          # Restaura os arquivos criptografados (defesa)
+├── keylogger/
+│   ├── keylogger.py          # Simula a captura de teclas (ataque)
+│   └── detector.py           # Detecta processos suspeitos de keylogging (defesa)
+├── defense/
+│   └── shield.py             # Script central de detecção e resposta
+├── docs/
+│   └── relatorio.pdf         # Relatório técnico com análise e conclusões
 └── README.md
 ```
 
 ---
 
-# 🔐 Ransomware Simulado
+## ⚔️ Módulos
 
-O script de ransomware desenvolvido neste projeto simula o comportamento de um malware que **criptografa arquivos e exige resgate para recuperação**.
+### 🔴 Módulo de Ransomware
 
-## Funcionamento
+Simula o comportamento de um ransomware real:
 
-1. Seleciona arquivos de teste
-2. Utiliza criptografia para **criptografar os arquivos**
-3. Simula uma mensagem de resgate
-4. Possui um script separado para **descriptografar os arquivos**
+- Varredura de diretório-alvo em busca de arquivos
+- Criptografia dos arquivos utilizando algoritmo simétrico
+- Geração de chave de descriptografia
+- Simulação de nota de resgate
 
-## Biblioteca utilizada
-
-- `cryptography`
-- `Fernet`
-
-Essas bibliotecas permitem realizar **criptografia simétrica**, técnica utilizada por diversos ransomwares reais.
+**Contramedida incluída:** script de descriptografia que restaura os arquivos utilizando a chave gerada, demonstrando como backups e chaves seguras são essenciais para a recuperação.
 
 ---
 
-# ⌨️ Keylogger Simulado
+### ⌨️ Módulo de Keylogger
 
-O keylogger criado neste projeto registra **teclas pressionadas no teclado** e salva as informações em um arquivo `.txt`.
+Simula a captura silenciosa de teclas digitadas:
 
-## Funcionamento
+- Monitoramento de eventos de teclado em segundo plano
+- Registro das teclas capturadas em arquivo de log
+- Simulação de exfiltração dos dados
 
-O script:
-
-- Monitora o teclado
-- Registra teclas digitadas
-- Salva os dados em `log.txt`
-- Trata teclas especiais como:
-  - espaço
-  - enter
-  - tab
-  - backspace
-
-## Biblioteca utilizada
-
-- `pynput`
-
-Essa biblioteca permite monitorar **eventos de teclado e mouse no sistema operacional**.
+**Contramedida incluída:** detector de processos que identifica comportamentos característicos de keyloggers ativos no sistema.
 
 ---
 
-# 🛡️ Estratégias de Defesa Contra Malware
+### 🛡️ Script de Defesa — Shield
 
-Durante o estudo deste projeto foram analisadas algumas medidas importantes de proteção:
+Script central de monitoramento e resposta que integra as defesas dos dois módulos:
 
-### 🔹 Antivírus e EDR
-Ferramentas de segurança podem detectar **comportamentos suspeitos** como captura de teclado ou criptografia em massa de arquivos.
-
-### 🔹 Firewall
-Bloqueia comunicações suspeitas entre malwares e servidores externos.
-
-### 🔹 Sandbox / Máquina Virtual
-Executar arquivos desconhecidos em ambientes isolados evita comprometer o sistema principal.
-
-### 🔹 Conscientização do Usuário
-Muitos ataques acontecem por:
-
-- downloads maliciosos
-- anexos de e-mail
-- engenharia social
-
-Treinamento de usuários é uma das **melhores defesas contra ataques**.
+- Verificação de integridade de arquivos
+- Detecção de processos suspeitos
+- Alertas em tempo real sobre comportamentos anômalos
+- Recomendações de resposta a incidentes
 
 ---
 
-# 💻 Tecnologias Utilizadas
+## 🛠️ Tecnologias Utilizadas
 
-- Python
-- cryptography
-- pynput
+| Tecnologia | Uso |
+|---|---|
+| Python | Desenvolvimento de todos os módulos |
+| Linux | Ambiente de execução e testes |
+| Kali Linux | Ambiente de análise de segurança |
+| Git / GitHub | Versionamento de código |
 
 ---
 
-# 🚀 Como Executar o Projeto
+## 🚀 Como Executar
 
-## 1️⃣ Clonar o repositório
+### Pré-requisitos
+
+- Python 3.x instalado
+- Linux ou Kali Linux
+- Ambiente **isolado** (máquina virtual recomendada)
 
 ```bash
-git clone https://github.com/GuiMRDS/Ransomware_and_Keylogger_Shield.git
+# Instalar dependências
+pip install -r requirements.txt
 ```
 
-## 2️⃣ Instalar dependências
+### Executando os módulos
 
 ```bash
-pip install cryptography
-pip install pynput
+# Simulação do Ransomware (em ambiente controlado)
+python ransomware/encryptor.py
+
+# Descriptografia (recuperação)
+python ransomware/decryptor.py
+
+# Simulação do Keylogger
+python keylogger/keylogger.py
+
+# Detector de Keylogger
+python keylogger/detector.py
+
+# Shield — Defesa integrada
+python defense/shield.py
 ```
 
-## 3️⃣ Executar os scripts
-
-Exemplo:
-
-```bash
-python keylogger.py
-```
-
-ou
-
-```bash
-python ransomware.py
-```
-
-⚠️ Execute apenas em **ambiente de testes**.
+> 🔒 **Recomendação:** Execute sempre em uma máquina virtual isolada, nunca diretamente no sistema principal.
 
 ---
 
-# 📖 Aprendizados
+## 📚 O que foi Aprendido
 
-Este projeto permitiu compreender na prática:
-
-- Como ransomwares utilizam **criptografia para sequestrar dados**
-- Como keyloggers capturam **informações digitadas**
-- Como esses comportamentos podem ser **detectados por ferramentas de segurança**
-- A importância de boas práticas de **cibersegurança defensiva**
-
----
-
-# ⚠️ Aviso Legal
-
-Este repositório foi criado **exclusivamente para fins educacionais e de pesquisa em segurança da informação**.
-
-O uso indevido dessas técnicas pode ser **ilegal**.  
-O autor **não se responsabiliza por qualquer uso malicioso deste código**.
+- Como ransomwares criptografam arquivos e sequestram dados
+- Como keyloggers capturam informações sem interação do usuário
+- Técnicas de detecção de comportamento malicioso
+- Boas práticas de defesa: backups, monitoramento de processos e resposta a incidentes
+- Fundamentos de **hacking ético** e análise de vulnerabilidades
 
 ---
 
-# 👨‍💻 Autor
+## 🎓 Contexto Acadêmico
+
+> Projeto desenvolvido durante o **Bootcamp Riachuelo – Cibersegurança**, promovido pela **Digital Innovation One (DIO)** em parceria com **Lojas Riachuelo S.A.**
+>
+> **Carga horária:** 40 horas
+> **Tópicos do bootcamp:** Segurança da Informação · Linux básico e intermediário · Kali Linux · Análise de vulnerabilidades · Hacking ético · Automação com Python
+
+---
+
+## 👨‍💻 Autor
 
 **Guilherme Marinho**
 
-🎓 Estudante de Análise e Desenvolvimento de Sistemas  
-🔐 Interesse em Cibersegurança, Inteligência Artificial e Desenvolvimento de Software
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-guilherme--marinho04-blue?style=flat&logo=linkedin)](https://www.linkedin.com/in/guilherme-marinho04/)
+[![GitHub](https://img.shields.io/badge/GitHub-GuiMRDS-black?style=flat&logo=github)](https://github.com/GuiMRDS)
 
-GitHub:  
-https://github.com/GuiMRDS
+---
+
+## 📄 Licença
+
+Este projeto foi desenvolvido para fins educacionais. Uso malicioso é estritamente proibido e de responsabilidade exclusiva do usuário.
