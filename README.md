@@ -2,7 +2,7 @@
 
 > ⚠️ **Aviso Legal:** Este projeto foi desenvolvido **exclusivamente para fins educacionais**, em ambiente controlado e isolado. Nenhum código aqui deve ser utilizado para atividades ilegais ou maliciosas. O objetivo é compreender como ataques funcionam para **melhorar a segurança de sistemas**.
 
-Projeto de **Cibersegurança** que combina simulação ofensiva e defesa ativa contra dois dos ataques mais comuns no mundo digital: **Ransomware** e **Keylogger**. Desenvolvido como parte do **Bootcamp Riachuelo – Cibersegurança** da Digital Innovation One (DIO), com 40 horas de formação.
+Projeto de **Cibersegurança** que combina simulação ofensiva e defesa ativa contra dois dos ataques mais comuns no mundo digital: **Ransomware** e **Keylogger**.
 
 ---
 
